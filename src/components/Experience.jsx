@@ -47,36 +47,96 @@ export default function Experience() {
       }`}
     >
       <div className="w-full max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20 max-sm:mb-14">
-          <h2 className={`text-5xl max-sm:text-4xl font-bold mb-4 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
+        <div className="text-center mb-16">
+          <h2
+            className={`text-5xl max-sm:text-4xl font-bold mb-4 ${
+              isDark ? 'text-gray-100' : 'text-gray-900'
+            }`}
+          >
             <span className="text-teal-600">Experience</span> & Journey
           </h2>
-          <p className={`text-xl max-sm:text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p
+            className={`text-xl max-sm:text-lg ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}
+          >
             My learning path and professional growth
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Central Line */}
-          <div 
-            className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full rounded-full
-              ${isDark ? 'bg-gradient-to-b from-teal-600 via-teal-500 to-teal-600/20' : 'bg-gradient-to-b from-teal-500 via-teal-400 to-teal-500/20'}`}
+        {/* DESKTOP TIMELINE VIEW */}
+        <div className="hidden md:block relative">
+          <div
+            className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full rounded-full ${
+              isDark
+                ? 'bg-gradient-to-b from-teal-600 via-teal-500 to-teal-600/20'
+                : 'bg-gradient-to-b from-teal-500 via-teal-400 to-teal-500/20'
+            }`}
           />
 
-          {/* Timeline Items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <TimelineItem 
-                key={index} 
-                exp={exp} 
-                index={index} 
-                isDark={isDark} 
+              <TimelineItem
+                key={index}
+                exp={exp}
+                index={index}
+                isDark={isDark}
                 isLeft={index % 2 === 0}
               />
             ))}
           </div>
+        </div>
+
+        {/* MOBILE SIMPLE VIEW */}
+        <div className="block md:hidden space-y-6">
+          {experiences.map((exp, index) => {
+            const Icon = timelineIcons[exp.title] || Rocket;
+
+            return (
+              <div
+                key={index}
+                className={`rounded-2xl p-5 border ${
+                  isDark
+                    ? 'bg-gray-800 border-gray-700'
+                    : 'bg-white border-gray-200'
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div
+                    className={`w-10 h-10 flex items-center justify-center rounded-full ${
+                      isDark
+                        ? 'bg-teal-600 text-white'
+                        : 'bg-teal-500 text-white'
+                    }`}
+                  >
+                    <Icon size={18} />
+                  </div>
+
+                  <div>
+                    <h3
+                      className={`text-lg font-bold ${
+                        isDark ? 'text-gray-100' : 'text-gray-900'
+                      }`}
+                    >
+                      {exp.title}
+                    </h3>
+
+                    <span className="text-xs text-gray-500">
+                      {exp.duration}
+                    </span>
+                  </div>
+                </div>
+
+                <p
+                  className={`text-sm leading-relaxed ${
+                    isDark ? 'text-gray-400' : 'text-gray-600'
+                  }`}
+                >
+                  {exp.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -95,7 +155,7 @@ function TimelineItem({ exp, index, isDark, isLeft }) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.3 }
     );
 
     if (itemRef.current) {
@@ -110,64 +170,61 @@ function TimelineItem({ exp, index, isDark, isLeft }) {
   }, []);
 
   return (
-    <div 
+    <div
       ref={itemRef}
-      className={`relative flex items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'} max-sm:flex-row`}
+      className={`relative flex items-center ${
+        isLeft ? 'flex-row' : 'flex-row-reverse'
+      }`}
     >
-      {/* Content Card */}
-      <div 
-        className={`w-5/12 max-sm:w-10/12 max-sm:ml-16 transition-all duration-700 ease-out
-          ${isVisible 
-            ? 'opacity-100 translate-x-0' 
-            : `opacity-0 ${isLeft ? '-translate-x-12' : 'translate-x-12'} max-sm:translate-x-0 max-sm:opacity-0`
-          }`}
+      <div
+        className={`w-5/12 transition-all duration-700 ${
+          isVisible
+            ? 'opacity-100 translate-x-0'
+            : isLeft
+            ? '-translate-x-12 opacity-0'
+            : 'translate-x-12 opacity-0'
+        }`}
       >
         <div
-          className={`timeline-card rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1
-            ${isDark 
-              ? 'bg-gray-800/80 border border-gray-700 hover:border-teal-600/50' 
-              : 'bg-white border border-gray-200 hover:border-teal-500/50'}`}
+          className={`rounded-2xl p-6 border transition-all duration-300 ${
+            isDark
+              ? 'bg-gray-800 border-gray-700'
+              : 'bg-white border-gray-200'
+          }`}
         >
-          {/* Duration Tag */}
-          <span className={`text-xs font-medium tracking-wide ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
-            {exp.duration}
-          </span>
-          
-          <h3 className={`text-xl font-bold mt-2 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
+          <span className="text-xs text-gray-500">{exp.duration}</span>
+
+          <h3
+            className={`text-xl font-bold mt-2 ${
+              isDark ? 'text-gray-100' : 'text-gray-900'
+            }`}
+          >
             {exp.title}
           </h3>
 
-          <p className={`mt-3 text-sm leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p
+            className={`mt-3 text-sm ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}
+          >
             {exp.description}
           </p>
         </div>
       </div>
 
-      {/* Spacer */}
-      <div className="w-2/12 max-sm:hidden" />
+      <div className="w-2/12" />
 
-      {/* Timeline Node */}
-      <div 
-        className={`absolute left-1/2 transform -translate-x-1/2 z-10 max-sm:left-4 max-sm:translate-x-0
-          transition-all duration-500 delay-200
-          ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
-      >
-        <div 
-          className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg
-            transition-all duration-300 hover:scale-110
-            ${isDark 
-              ? 'bg-gray-800 border-2 border-teal-500 hover:bg-teal-600' 
-              : 'bg-white border-2 border-teal-500 hover:bg-teal-500'}`}
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+        <div
+          className={`w-12 h-12 rounded-full flex items-center justify-center ${
+            isDark ? 'bg-gray-800 border-2 border-teal-500' : 'bg-white border-2 border-teal-500'
+          }`}
         >
-          <Icon 
-            size={20} 
-            className={`transition-colors duration-300 ${isDark ? 'text-teal-400 group-hover:text-white' : 'text-teal-600'}`}
-          />
+          <Icon size={20} className="text-teal-500" />
         </div>
       </div>
 
-      {/* Empty Space for opposite side */}
-      <div className="w-5/12 max-sm:hidden" />
+      <div className="w-5/12" />
     </div>
   );
 }
