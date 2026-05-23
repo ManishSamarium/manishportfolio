@@ -64,7 +64,7 @@ export default function Hero() {
                 }`}
                 style={{ animationDelay: '0.5s' }}
               >
-                Full-Stack Web Developer and AI / ML / DL enthusiast crafting beautiful and scalable web applications.
+                Full-Stack Web Developer (MERN) and AI / ML / DL enthusiast crafting beautiful and scalable web applications.
               </p>
 
               {/* CONTACT - Staggered Animation */}
