@@ -22,12 +22,12 @@ export default function Skills() {
     {
       id: 3,
       title: "Databases & Tools",
-      items: ["MongoDB", "MySQL", "Git", "Postman"],
+      items: ["MongoDB", "MySQL", "Git", "Linux"],
     },
     {
       id: 4,
       title: "AI / ML / Deep Learning",
-      items: ["Scikit-learn", "Random Forest", "OpenCV", "Model Development"],
+      items: ["Scikit-learn", "Random Forest", "OpenCV", "Face Recognition"],
     },
     {
       id: 5,
@@ -45,20 +45,14 @@ export default function Skills() {
     >
       <div className="w-full max-w-7xl py-16">
         <h2
-          className={`text-5xl md:text-6xl max-sm:text-4xl font-bold text-center mb-6 ${
+          className={`text-5xl md:text-6xl max-sm:text-4xl font-bold text-center mb-20 ${
             isDark ? 'text-gray-100' : 'text-gray-900'
           }`}
         >
           Technical <span className="text-teal-600">Expertise</span>
-          <span></span>
-           <span></span>
         </h2>
-        
 
-    
-     
-
-        <div className="grid grid-cols-12 gap-8 max-sm:gap-6">
+        <div className="grid grid-cols-12 gap-8 mt-4 max-sm:gap-6">
           {skillCategories.map((category) => (
             <div
               key={category.id}
