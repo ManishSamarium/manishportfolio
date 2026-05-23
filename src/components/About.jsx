@@ -6,8 +6,7 @@ export default function About() {
 
   const focusAreas = [
     "Full-Stack Web Development",
-    "AI & Machine Learning",
-    "System Design & Architecture",
+    "AI / Machine Learning and Deep Learning",
   ];
 
   return (
