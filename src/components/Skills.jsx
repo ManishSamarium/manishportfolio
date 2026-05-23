@@ -52,14 +52,7 @@ export default function Skills() {
           Technical <span className="text-teal-600">Expertise</span>
         </h2>
 
-        <p
-          className={`text-center max-w-4xl mx-auto text-lg md:text-xl max-sm:text-base mb-16 leading-relaxed ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
-          }`}
-        >
-          Building scalable MERN applications, engineering robust backend systems,
-          and developing AI-driven intelligent solutions.
-        </p>
+      
 
         <div className="grid grid-cols-12 gap-8 max-sm:gap-6">
           {skillCategories.map((category) => (
