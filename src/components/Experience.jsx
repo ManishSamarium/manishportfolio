@@ -20,7 +20,7 @@ export default function Experience() {
       duration: '2024 - Present',
     },
     {
-      title: 'AI & Machine Learning',
+      title: 'AI / ML / DL',
       description:
         'Developed AI solutions including face recognition and disease prediction systems.',
       duration: '2025 - Present',
