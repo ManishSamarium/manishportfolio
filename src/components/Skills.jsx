@@ -50,11 +50,13 @@ export default function Skills() {
           }`}
         >
           Technical <span className="text-teal-600">Expertise</span>
+          <span></span>
+           <span></span>
         </h2>
+        
 
-      </br>
-       </br>
-     </br>
+    
+     
 
         <div className="grid grid-cols-12 gap-8 max-sm:gap-6">
           {skillCategories.map((category) => (
