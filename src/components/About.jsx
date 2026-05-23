@@ -83,7 +83,7 @@ export default function About() {
                 <div className="pt-6">
                   <a
                     href={myCV}
-                    download="Manish_Yadav_CV.pdf"
+                    download="resume(4).pdf"
                     className="
                             inline-block px-16 py-6 max-sm:px-8 max-sm:py-4
                             rounded-xl text-2xl max-sm:text-lg font-semibold
