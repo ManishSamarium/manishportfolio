@@ -1,5 +1,5 @@
 import { useTheme } from "../context/ThemeContext";
-import myCV from "../assets/Manish_Kumar_CV.pdf";
+// import myCV from "../assets/Manish_Kumar_CV.pdf";
 
 export default function About() {
   const { isDark } = useTheme();
