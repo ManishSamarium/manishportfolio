@@ -91,7 +91,7 @@ export default function About() {
                 <br />
 
                 <div className="pt-6">
-                  <a
+                  <button
                     href={myCV}
                     download="Manish_Kumar_Resume.pdf"
                     className="
@@ -104,7 +104,7 @@ export default function About() {
                     "
                   >
                     ⬇ Download Resume
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
